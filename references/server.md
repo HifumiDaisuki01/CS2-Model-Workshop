@@ -17,10 +17,21 @@ python3 scripts/deploy.py ./character-workshop/package '<Workshop 作品链接>'
 
 ## 服务器条件
 
-- 已有兼容的 Metamod、MultiAddonManager、CounterStrikeSharp 和 [支持 `pmc_status` 的 PlayerModelChanger fork](https://github.com/HifumiDaisuki01/CS2-MODEL-CHANGER/blob/main/server/README.md)。
+- 按下面的插件清单准备目标服务器。
 - 本机回环 RCON 可访问。默认从服务器的 `cfg/server.cfg` 读取唯一带引号的 `rcon_password`。密码由额外配置提供时，用 `--rcon-password-file` 指向服务器上已有的单行密码文件。密码留在服务器。
 - SSH 账号可写入相关配置，并能直接或用免交互 `sudo` 重启该 systemd 服务。部署成功要重启一次，在线玩家会断开，地图按该服务的原有启动配置加载。
 - Workshop 作品应能被目标服务器和客户端访问。脚本把该角色作为**独立作品**追加。更新已挂载的旧作品或覆盖同路径人物，应先处理旧版资源和回滚。
+
+## 必需插件与安装顺序
+
+| 顺序 | 组件 | 用途 | 下载 |
+| --- | --- | --- | --- |
+| 1 | Metamod:Source | CS2 原生插件加载器 | [官方构建](https://www.sourcemm.net/downloads.php?branch=master) |
+| 2 | CounterStrikeSharp | PlayerModelChanger 的 .NET 插件运行环境 | [官方 Release](https://github.com/roflmuffin/CounterStrikeSharp/releases) |
+| 3 | MultiAddonManager | Workshop 下载、服务端挂载及客户端资源分发 | [官方 Release](https://github.com/Source2ZE/MultiAddonManager/releases) |
+| 4 | PlayerModelChanger 适配版 | `!models`、`!model`、资源目录校验及 `pmc_status` | [适配版 Linux Release](https://github.com/HifumiDaisuki01/CS2-MODEL-CHANGER/releases/tag/v0.2.0-linux) |
+
+选择与当前 CS2 服务端兼容的 Linux 构建。先安装 Metamod，再安装 CounterStrikeSharp 与 MultiAddonManager，最后安装 PlayerModelChanger 适配版。PlayerModelChanger 请使用完整插件包，包含该插件自带的运行依赖。启动后用 `meta list` 检查原生插件，使用 `css_plugins list`、`pmc_status` 和 `mm_print_searchpaths` 检查部署条件。历史实测组合见 [适配版部署记录](https://github.com/HifumiDaisuki01/CS2-MODEL-CHANGER/blob/main/server/README.md)。
 
 ## 部署过程
 

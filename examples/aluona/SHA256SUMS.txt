@@ -1,0 +1,1 @@
+3a232ff58c594a4ff1792a3085b16c41c80f2b61cf294fc647fd9c608a0c3671  examples/aluona/aluona-workshop-example.zip

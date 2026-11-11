@@ -21,6 +21,10 @@ python scripts/prepare.py character.zip --output character-workshop
 
 成功时打开 `<输出>/package/UPLOAD-WORKSHOP.md`。它带有本次 addon 名和 `!model` 指令。若处理失败，查看 `report.json` 和 `logs/`。静态检查、Windows 编译、工坊上传和客户端验收是独立状态。
 
+## 阿洛娜练习包
+
+仓库包含已编译的 [阿洛娜示例 ZIP](examples/aluona/aluona-workshop-example.zip)，可直接练习上传，也可作为 Skill 输入练习打包。[示例用法与来源](examples/aluona/README.md)
+
 ## 部署到服务器
 
 ```bash
@@ -29,4 +33,4 @@ python3 scripts/deploy.py ./character-workshop/package '<Workshop 作品链接>'
 
 支持已有 MAM 和兼容 PlayerModelChanger 的 Linux systemd 服。脚本校验实际下载的模型资源，备份后追加配置，重启并通过 RCON 验证。遇到失败自动恢复配置。完整条件和参数见 [SSH 部署](references/server.md)。
 
-本仓库只包含 Skill、脚本和说明。旧转换与校验工具通过固定提交复用，见 [CS2-MODEL-CHANGER](https://github.com/HifumiDaisuki01/CS2-MODEL-CHANGER/tree/000c0f492761e0b396fa0eb264f0e679a23a18a7)。项目不附带 Valve 运行库、第三方人物模型或 Steam 登录信息。
+仓库提供 Skill、脚本、说明及阿洛娜单人物示例。旧转换与校验工具通过固定提交复用，见 [CS2-MODEL-CHANGER](https://github.com/HifumiDaisuki01/CS2-MODEL-CHANGER/tree/000c0f492761e0b396fa0eb264f0e679a23a18a7)。项目不附带 Valve 运行库或 Steam 登录信息。
