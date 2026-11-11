@@ -1,0 +1,13 @@
+interface:
+  display_name: CS2 人物模型工坊
+  short_description: 检查、修复和打包 CS2 社区服人物模型，生成工坊工程
+  default_prompt: 用 $cs2-model-workshop 把这个人物模型准备成可上传的 CS2 工坊工程。
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true
