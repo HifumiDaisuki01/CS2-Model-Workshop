@@ -18,6 +18,8 @@
 
 ## 社区服
 
+把作品链接和 SSH 服务器信息交给 Skill，即可按 [SSH 部署](https://github.com/HifumiDaisuki01/CS2-Model-Workshop/blob/main/references/server.md) 自动执行下载、挂载、配置和服务端验证。以下步骤也可手动执行。
+
 1. 先在测试服把作品 ID 合并进 MultiAddonManager 的 `mm_extra_addons`。服务器继续使用原地图。检查当前挂载的 addon 是否占用相同资源路径，尤其是更新同一角色时。
 2. 等待 Workshop 实际下载完成。使用上游 `verify_vpk.py` 对实际下载的 VPK 目录和分卷做 CRC 校验，并与 `resources.sha256.json` 核对模型、材质和贴图条目。Workshop Tools 可能重新封装，服务端的 catalog 应以实际下载归档的路径和 SHA256 生成。
 3. 按 [服务端配置及校验流程](https://github.com/HifumiDaisuki01/CS2-MODEL-CHANGER/blob/000c0f492761e0b396fa0eb264f0e679a23a18a7/server/README.md) 用 `stage_model.py` 准备 MAM、PlayerModelChanger 配置和 `resource-catalog.json`。`PlayerModelChanger.merge.json` 是本角色的配置片段。保留已有设置和玩家选择数据库。
